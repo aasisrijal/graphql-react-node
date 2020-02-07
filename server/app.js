@@ -3,9 +3,10 @@ const graphlqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 const app = express();
-
+app.use(cors());
 dotenv.config();
 
 //connect to db
@@ -22,6 +23,6 @@ app.use('/graphql', graphlqlHTTP({
 	graphiql:true
 }));
 
-app.listen(3000, () => {
-	console.log('server running on port 3000');
+app.listen(5000, () => {
+	console.log('server running on port 5000');
 });
